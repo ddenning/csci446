@@ -4,6 +4,7 @@
 
 <head>
 	<title>Life Figure-Outer Application</title>
+	<link rel="stylesheet" type="text/css" href="index_style.css" />
 </head>
 
 <body>
@@ -30,12 +31,12 @@
 	<p>How do you feel today?</p>
 	<input type="text" name="feel" />
 	<p>How would you like to feel? <br /> (choose all that apply)</p>
-	<select name="likeToFeel">
+	<select name="likeToFeel" multiple="true" size="4">
 		<option>Comfortably Numb</option>
 		<option>Grumpy as poop, you jerk</option>
 		<option>Happy like I'm on controlled substances</option>
 		<option>Normal. Absolutely Normal.</option>
-	</select>
+	</select> <br />
 	<input type="submit" value="Feel me!" />
 </div>
 </form>
