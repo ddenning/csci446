@@ -1,9 +1,21 @@
-#title {
- background-color: #d0d0d0;
+div#title {
+	background-color: #d0d0d0;
 }
 
-#menubar {
+div#menubar {
 	background-color: #000000;
+}
+
+div#main_content {
+	width: 70%;
+	float: left;
+}
+
+div#side_bar {
+	background-color: #e8e8e8;
+
+	width: 29%;
+	float: left;
 }
 
 a {
@@ -11,5 +23,7 @@ a {
 }
 
 footer {
+	text-align: center;
 	background-color: #f0f0f0;
+	clear: both;
 }
