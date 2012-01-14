@@ -1,9 +1,17 @@
 div#title {
+	margin-bottom: 0em;
 	background-color: #d0d0d0;
+	letter-spacing: .05em;
+}
+
+div#title h1 {
+	font-weight: 900;
 }
 
 div#menubar {
+	margin-top: 0em;
 	background-color: #000000;
+	padding: 1em;
 }
 
 div#main_content {
@@ -12,18 +20,25 @@ div#main_content {
 }
 
 div#side_bar {
+	margin-top: .75em;
 	background-color: #e8e8e8;
-
 	width: 29%;
 	float: left;
 }
 
 a {
+	margin-left: .05em;
+	margin-right: 2em;
 	color: #ffffff;
+	font-family: Ariel, Sans-serif;
+	letter-spacing: .001em;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 footer {
 	text-align: center;
 	background-color: #f0f0f0;
+	line-height: 2.5em;
 	clear: both;
 }
