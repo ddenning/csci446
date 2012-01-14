@@ -1,17 +1,31 @@
+header {
+	position: absolute;
+	left: -10px;
+	top: -10px;
+}
+
+div#title>* {
+	margin: 0em;
+}
+
 div#title {
-	margin-bottom: 0em;
 	background-color: #d0d0d0;
-	letter-spacing: .05em;
+	letter-spacing: .0001em;
+	width: 2000px;
+	padding-left: 20px;
+	padding-top: 7px;
 }
 
 div#title h1 {
+	padding-top: .25em;
 	font-weight: 900;
 }
 
 div#menubar {
 	margin-top: 0em;
+	border-top: 0em;
 	background-color: #000000;
-	padding: 1em;
+	padding: 1.2em;
 }
 
 div#main_content {
@@ -30,8 +44,7 @@ a {
 	margin-left: .05em;
 	margin-right: 2em;
 	color: #ffffff;
-	font-family: Ariel, Sans-serif;
-	letter-spacing: .001em;
+	letter-spacing: .00001em;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -41,4 +54,8 @@ footer {
 	background-color: #f0f0f0;
 	line-height: 2.5em;
 	clear: both;
+}
+
+* {
+	font-family: Ariel, Sans-serif;
 }
