@@ -10,10 +10,6 @@ div#title>* {
 	border: 0em;
 }
 
-div#title>p {
-	color: #7E7268;
-}
-
 div#title {
 	background-color: #ccc;
 	letter-spacing: .0001em;
@@ -21,9 +17,16 @@ div#title {
 	padding-bottom: 10px;
 }
 
+div#title>p {
+	color: #7E7268;
+	font-size: 90%;
+	line-height: .75em;
+}
+
 div#title h1 {
 	padding-top: .25em;
 	font-weight: bolder;
+	font-size: 210%;
 }
 
 div#menubar {
@@ -37,30 +40,43 @@ div#menubar {
 
 div#main_content {
 	position: absolute;
-	top: 100px;
+	top: 110px;
+	left: 25px
 }
 
 div#side_bar {
 	margin-top: .75em;
 	background-color: #f0f0ff;
+	width: 20em;
+	height: 4em;
 	line-height: .75em;
+	letter-spacing: .02em;
+	font-size: 115%;
 	padding-bottom: 1em;
 	padding-right: 3em;
+	padding-left: .25em;
 	position: absolute;
 	top: 120px;
-	right: 10px;
+	left: 750px;
 }
 
-div#side_bar>* {
-	line-height: 1.1em;
+div#side_bar>h3 {
+	position: absolute;
+	top: -15px;
+}
+
+div#side_bar>p {
+	position: absolute;
+	bottom: 15px;
 }
 
 a {
 	margin-left: .05em;
 	margin-right: 2em;
 	color: #ffffff;
-	letter-spacing: .00001em;
-	font-weight: bold;
+	font-size: 115%;
+	letter-spacing: .001em;
+	font-weight: bolder;
 	text-decoration: none;
 }
 
