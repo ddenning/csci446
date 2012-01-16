@@ -104,6 +104,10 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	color: #FFF837;
+}
+
 footer {
 	text-align: center;
 	background-color: #f0f0f0;

@@ -5,6 +5,7 @@
 <head>
 	<title>Life Figure-Outer Application</title>
 	<link rel="stylesheet" type="text/css" href="index_style.css" />
+	<script type="text/javascript" src="form_functions.js"></script>
 </head>
 
 <body>
@@ -15,17 +16,17 @@
 		<p>Figuring out your life for you, so you don't have to...</p>
 	</div>
 	<div id="menubar">
-		<a href="">Home</a>
-		<a href="">Interests</a>
-		<a href="">Health</a>
-		<a href="">Academic</a>
-		<a href="">Professional</a>
-		<a href="">Fun</a>
-		<a href="">Evil</a>
+		<a href="#" title="Here is some text.">Home</a>
+		<a href="#" title="Here is some text.">Interests</a>
+		<a href="#" title="Here is some text.">Health</a>
+		<a href="#" title="Here is some text.">Academic</a>
+		<a href="#" title="Here is some text.">Professional</a>
+		<a href="#" title="Here is some text.">Fun</a>
+		<a href="#" title="Here is some text.">Evil</a>
 	</div>
 </header>
 
-<form name="feelToday">
+<form name="feelToday" onsubmit="validateForm();">
 <div id="main_content">
 	<h2>Lorem Ipsum Dolor Sit Amet.</h2>
 	<span class="input">How do you feel today?</span>
@@ -37,7 +38,7 @@
 		<option>Happy like I'm on controlled substances</option>
 		<option>Normal. Absolutely Normal.</option>
 	</select> <br />
-	<input type="submit" value="Feel me!" id="feel_me" />
+	<input type="submit" value="Feel me!" id="feel_me"/>
 </div>
 </form>
 
