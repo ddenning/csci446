@@ -18,7 +18,7 @@ div#title {
 }
 
 div#title>p {
-	color: #7E7268;
+	color: #666;
 	font-size: 90%;
 	line-height: .75em;
 }
@@ -41,7 +41,31 @@ div#menubar {
 div#main_content {
 	position: absolute;
 	top: 110px;
-	left: 25px
+	left: 15px
+}
+
+div#main_content>h2 {
+	font-size: 160%;
+}
+
+div#main_content>span, input, select {
+	margin-top: .25em;
+	margin-bottom: 1.2em;
+}
+
+div#main_content>span.input {
+	margin-right: 2.2em;
+}
+
+div#main_content>span.select {
+	margin-right: .9em;
+	float: left;
+}
+
+div#main_content>input#feel_me {
+	position: absolute;
+	top: 225px;
+	left: 208px;
 }
 
 div#side_bar {
