@@ -4,6 +4,8 @@ function validateForm()
 
 	if(feeling == "")
 		alert("Surely you feel something!");
+}
 
-	return false;
+function doNothing()
+{
 }

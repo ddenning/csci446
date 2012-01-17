@@ -53,6 +53,7 @@ a {
 	margin: 0px;
 	padding: 0px;
 	color: #ffffff;
+	letter-spacing: -.05em;
 	font-weight: bolder;
 	text-decoration: none;
 }
