@@ -1,19 +1,26 @@
-Level 2
+Level 4
 
-It is too dark to see anything, but you smell sludge nearby.
+You can hear bow strings being stretched.
 
-Tip: Use warrior.feel.empty? to see if there's anything in front of you, and warrior.attack! to fight it. Remember, you can only do one action (ending in !) per turn.
+Tip: No new abilities this time, but you must be careful not to rest while taking damage. Save a @health instance variable and compare it on each turn to see if you're taking damage.
 
- --------
-|@   s  >|
- --------
+ -------
+|@ Sa S>|
+ -------
 
   > = Stairs
   @ = Dylan (20 HP)
-  s = Sludge (12 HP)
+  S = Thick Sludge (24 HP)
+  a = Archer (7 HP)
 
 
 Warrior Abilities:
+
+  warrior.health
+    Returns an integer representing your health.
+
+  warrior.rest!
+    Gain 10% of max health back, but do nothing more.
 
   warrior.feel
     Returns a Space for the given direction (forward by default).
