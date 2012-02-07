@@ -1,7 +1,2 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
-
-Created a depot site, so people can buy products and an administration can manage the site.
-
-For Administration:
-	goto "thissite.com"/login to login and perform administrative duties
