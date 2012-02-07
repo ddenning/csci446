@@ -1,5 +1,5 @@
 Order.transaction do
-	(1..1000).each do |i|
+	(1..100).each do |i|
 		Order.create(	:name => "Customer #{i}",
 									:address => "#{i} Main Street",
 									:email => "customer-#{i}@example.com",
