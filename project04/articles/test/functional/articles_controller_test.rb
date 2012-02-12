@@ -25,23 +25,23 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "should show article" do
-    get :show, id: @article.to_param
+    get :show, id: @article
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @article.to_param
+    get :edit, id: @article
     assert_response :success
   end
 
   test "should update article" do
-    put :update, id: @article.to_param, article: @article.attributes
+    put :update, id: @article, article: @article.attributes
     assert_redirected_to article_path(assigns(:article))
   end
 
   test "should destroy article" do
     assert_difference('Article.count', -1) do
-      delete :destroy, id: @article.to_param
+      delete :destroy, id: @article
     end
 
     assert_redirected_to articles_path
