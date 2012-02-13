@@ -1,5 +1,5 @@
 <h2>All the World's Articles</h2>
-<%= link_to 'New Article', new_article_path %>
+<%= link_to 'New Article', new_article_path, title: "Create a new article" %>
 
 <table>
   <tr>
@@ -17,9 +17,9 @@
     <td class="body"><%= article.body %></td>
     <td class="time"><%= article.created_at.strftime("%A, %b. %d %Y") %></td>
     <td class = "list_actions">
-      <%= link_to 'Show', article %><br />
-      <%= link_to 'Edit', edit_article_path(article) %><br/>
-      <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+      <%= link_to 'Show', article, title: "Display Article" %><br />
+      <%= link_to 'Edit', edit_article_path(article), title: "Edit Article" %><br/>
+      <%= link_to 'Destroy', article, title: "Delete Article", confirm: 'Are you sure?', method: :delete %>
     </td>
   </tr>
 <% end %>
