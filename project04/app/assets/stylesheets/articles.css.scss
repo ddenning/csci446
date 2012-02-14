@@ -8,11 +8,10 @@
 		margin-right: 500px;
 	}
 
-	/*.scroll {
-		width: 1000px;
-		height: 500px;
-		overflow: scroll;
-	}*/
+	.scroll {
+		height: 315px;
+		overflow: auto;
+	}
 
 	table {
 		text-align: center;
@@ -20,6 +19,7 @@
 
 	th {
 		background: #ccc;
+		padding: 5px;
 	}
 
 	tr td {
