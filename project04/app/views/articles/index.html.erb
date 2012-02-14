@@ -15,7 +15,7 @@
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td class="title"><%= article.title %></td>
       <td class="author"><%= article.author %></td>
-      <td class="body"><%= article.body %></td>
+      <td class="body"><%= display_beginning(article.body) %></td>
       <td class="time"><%= article.created_at.strftime("%A, %b. %d %Y") %></td>
       <td class="list_actions">
         <%= link_to image_tag('magnifier.png'), article, title: "Display Article" %>
