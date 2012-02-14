@@ -26,3 +26,5 @@
   <% end %>
   </div>
 </table>
+
+<p class="num_articles"><%= pluralize(Article.get_num_rows, 'article') %></p>
