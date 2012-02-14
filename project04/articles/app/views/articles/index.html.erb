@@ -4,26 +4,25 @@
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Author Name</th>
-    <th>Body</th>
-    <th>Creation Date</th>
+    <th class="title">Title</th>
+    <th class="author">Author Name</th>
+    <th class="body">Body</th>
+    <th class="time">Creation Date</th>
     <th class="list_actions"></th>
   </tr>
-
-<% @articles.each do |article| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td class="title"><%= article.title %></td>
-    <td class="author"><%= article.author %></td>
-    <td class="body"><%= article.body %></td>
-    <td class="time"><%= article.created_at.strftime("%A, %b. %d %Y") %></td>
-    <td class="list_actions">
-      <%= link_to image_tag('magnifier.png'), article, title: "Display Article" %>
-      <%= link_to image_tag('table_edit.png'), edit_article_path(article), title: "Edit Article" %>
-      <%= link_to image_tag('bin.png'), article, title: "Delete Article", confirm: 'Are you sure?', method: :delete %>
-    </td>
-  </tr>
-<% end %>
+  <div class="scroll">
+  <% @articles.each do |article| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td class="title"><%= article.title %></td>
+      <td class="author"><%= article.author %></td>
+      <td class="body"><%= article.body %></td>
+      <td class="time"><%= article.created_at.strftime("%A, %b. %d %Y") %></td>
+      <td class="list_actions">
+        <%= link_to image_tag('magnifier.png'), article, title: "Display Article" %>
+        <%= link_to image_tag('table_edit.png'), edit_article_path(article), title: "Edit Article" %>
+        <%= link_to image_tag('bin.png'), article, title: "Delete Article", confirm: 'Are you sure?', method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </div>
 </table>
-
-<br />
