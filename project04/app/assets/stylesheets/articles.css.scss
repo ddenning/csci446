@@ -5,7 +5,7 @@
 .articles {
 	h2 {
 		display: inline;
-		padding-right: 500px;
+		margin-right: 500px;
 	}
 
 	/*.scroll {
@@ -15,19 +15,16 @@
 	}*/
 
 	table {
-		border-color: #000;
-		border: 5px;
 		text-align: center;
+	}
 
-		th {
-			background: #ccc;
-		}
+	th {
+		background: #ccc;
+	}
 
-		tr td {
-			padding: 5px;
-			vertical-align: top;
-		}
-
+	tr td {
+		padding: 5px;
+		vertical-align: top;
 	}
 
 	.title {
