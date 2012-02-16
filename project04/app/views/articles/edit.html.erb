@@ -2,7 +2,11 @@
   my cousin works for Bit.ly
 <% end %>
 
-<%= link_to image_tag('arrow_left.png'), articles_path, title: 'go to the previous page' %><%= link_to 'back', articles_path %>
+<% create_referer_link %>
+
+<% content_for :submit do %>Save Changes<% end %>
+
+<%= link_to image_tag('arrow_left.png'), :back, title: 'go to the previous page' %><%= link_to 'back', :back %>
 <h1>Editing "<%= @article.title %>"</h1>
 
 <%= render 'form' %>

@@ -13,7 +13,7 @@
 <h1 class="article_title"><%= @article.title %></h1>
 
 <p>
-  by <%= @article.author %>. <%= @article.num_edits %> since <%= @article.created_at.strftime("%b. %d %Y") %>.
+  by <%= @article.author %>. <%= pluralize(@article.num_edits, 'edit') %> since <%= @article.created_at.strftime("%b. %d %Y") %>.
 </p>
 
 <% @article.get_paragraphs.each do |paragraph| %>
