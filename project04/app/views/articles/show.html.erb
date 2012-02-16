@@ -3,6 +3,13 @@
 <% end %>
 <p id="notice"><%= notice %></p>
 
+<ul>
+	<li><%= link_to image_tag('arrow_left.png'), articles_path, title: "List all articles" %><%= link_to 'list all articles', articles_path %></li>
+	<li><%= link_to image_tag('table_edit.png'), edit_article_path(@article), title: "Edit article" %><%= link_to 'edit', edit_article_path(@article) %></li>
+	<li><%= link_to image_tag('bin.png'), @article, title: "Delete Article", confirm: 'Are you sure?', method: :delete %><%= link_to 'delete', @article, confirm: 'Are you sure?', method: :delete %></li>
+	<li><%= link_to image_tag('email.png'), @article, title: "Email Article" %><%= link_to 'email', @article %></li>
+</ul>
+
 <p>
   <b>Title:</b>
   <%= @article.title %>
@@ -22,7 +29,3 @@
   <b>Num edits:</b>
   <%= @article.num_edits %>
 </p>
-
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
