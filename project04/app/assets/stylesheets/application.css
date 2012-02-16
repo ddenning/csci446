@@ -15,3 +15,7 @@
 .head {
 	margin-left: 400px;
 }
+
+.head>h1 {
+	font-size: 300%;
+}
