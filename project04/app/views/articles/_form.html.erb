@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 15 %>
   </div>
   <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
+    <%= f.label :author %>
+    <%= f.text_field :author, :size => 15 %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label :body %>
+    <%= f.text_area :body, :cols => 75, :rows => 20 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <label></label>
+    <%= f.submit :value => 'Save Changes' %>
   </div>
 <% end %>

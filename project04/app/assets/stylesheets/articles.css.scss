@@ -95,6 +95,21 @@
 		width: 75em;
 		text-indent: 1em;
 	}
+
+	text_area {
+		width: 350px;
+	}
+
+	label {
+		margin-right: 3em;
+		width: 10em;
+		text-align: right;
+		float: left;
+	}
+
+	.actions {
+		margin-left: 13em;
+	}
 }
 
 .articles>h1 {
