@@ -1,9 +1,6 @@
 class Article < ActiveRecord::Base
 	validates :title, :author, :body, presence: true
-	validates :author, allow_blank: true, format: {
-		with: /[^pat]/i,
-		message: 'No authors with the name Pat are allowed.'
-	}
+	validate :author_cannot_be_pat
 	before_update :increment_edits
 
 	def get_paragraphs
@@ -16,5 +13,11 @@ class Article < ActiveRecord::Base
 
 	def increment_edits
 		self[:num_edits] += 1
+	end
+
+	def author_cannot_be_pat
+		if self[:author] =~ /pat/i
+			errors.add(:author, " cannot contain Pat")
+		end
 	end
 end
