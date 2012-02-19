@@ -60,7 +60,9 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to session[:previous_page], notice: 'Article was successfully updated.' }
+        tmp = session[:previous_page] || articles_url
+        session[:previous_page] = nil
+        format.html { redirect_to tmp, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
