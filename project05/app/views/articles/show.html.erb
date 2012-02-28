@@ -1,0 +1,21 @@
+<% content_for :subtitle do %>
+  what's "Articl" in Spanish anyways?
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<ul>
+	<li><%= link_to image_tag('arrow_left.png') << "list all articles", articles_path, title: "List all articles" %></li>
+	<li><%= link_to image_tag('table_edit.png') << "edit", edit_article_path(@article), title: "Edit article" %></li>
+	<li><%= link_to image_tag('bin.png') << "delete", @article, title: "Delete Article", confirm: 'Are you sure?', method: :delete %></li>
+	<li><%= mail_to "", image_tag('email.png') << "email", subject: @article.title, body: request.url, title: "Email Article" %></li>
+</ul>
+
+<h1 class="article_title"><%= @article.title %></h1>
+
+<p>
+  by <%= @article.author %>. <%= pluralize(@article.num_edits, 'edit') %> since <%= @article.created_at.strftime("%b. %d %Y") %>.
+</p>
+
+<% @article.get_paragraphs.each do |paragraph| %>
+	<p class="body_paragraph"><%= paragraph %></p>
+<% end %>
