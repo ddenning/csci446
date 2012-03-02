@@ -1,0 +1,13 @@
+- content_for :subtitle do
+  what's "Articl" in Spanish anyways?
+%p#notice= notice
+%ul
+  %li= link_to image_tag('arrow_left.png') << "list all articles", articles_path, title: "List all articles"
+  %li= link_to image_tag('table_edit.png') << "edit", edit_article_path(@article), title: "Edit article"
+  %li= link_to image_tag('bin.png') << "delete", @article, title: "Delete Article", confirm: 'Are you sure?', method: :delete
+  %li= mail_to "", image_tag('email.png') << "email", subject: @article.title, body: request.url, title: "Email Article"
+%h1.article_title= @article.title
+%p
+  by #{@article.author}. #{pluralize(@article.num_edits, 'edit')} since #{@article.created_at.strftime("%b. %d %Y")}.
+- @article.get_paragraphs.each do |paragraph|
+  %p.body_paragraph= paragraph

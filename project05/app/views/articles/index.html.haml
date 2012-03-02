@@ -1,0 +1,27 @@
+- content_for :subtitle do
+  with a name .com hipsters love!
+%h2.page_header All the World's Articles
+= link_to image_tag('add.png'), new_article_path
+= link_to 'New Article', new_article_path, title: "Create a new article"
+%p.pagination= will_paginate @articles
+%table
+  %tr
+    %th.title Title
+    %th.author Author Name
+    %th.body Body
+    %th.time Creation Date
+    %th.list_actions
+.scroll
+  %table
+    - (sort_articles(@articles)).each do |article|
+      %tr{:class => cycle('list_line_odd', 'list_line_even')}
+        %td.title= display_beginning_title_or_author(article.title)
+        %td.author= display_beginning_title_or_author(article.author)
+        %td.body= display_beginning_body(article.body)
+        %td.time= article.created_at.strftime("%A, %b. %d %Y")
+        %td.list_actions
+          = link_to image_tag('magnifier.png'), article, title: "Display Article"
+          = link_to image_tag('table_edit.png'), edit_article_path(article), title: "Edit Article"
+          = link_to image_tag('bin.png'), article, title: "Delete Article", confirm: 'Are you sure?', method: :delete
+%p.num_articles= pluralize(Article.get_num_rows, 'article')
+%p.pagination= will_paginate @articles
