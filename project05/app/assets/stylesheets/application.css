@@ -12,6 +12,11 @@
  *= require_tree .
 */
 
+div#container {
+	margin: auto;
+	width: 1100px;
+}
+
 .head {
 	margin-left: 400px;
 }
@@ -24,7 +29,7 @@
 	list-style-type: none;
 	background-color: #ccc;
 	text-align: center;
-	width: 1000px;
+	width: 100%;
 }
 
 #menubar>li {

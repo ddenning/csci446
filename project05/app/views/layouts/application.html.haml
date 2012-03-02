@@ -6,12 +6,14 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body{:class => controller.controller_name}
-    .head
-      %h1 Articl.es
-      %h3
-        \... #{yield(:subtitle)}
+    %div{:id => "container"}
+      .head
+        %h1 Articl.es
+        %h3
+          \... #{yield(:subtitle)}
 
-    %ul#menubar
-      %li= link_to"Articles", articles_path
-      %li= link_to "Authors", authors_path
-    = yield
+      %ul#menubar
+        %li= link_to"Articles", articles_path
+        %li= link_to "Authors", authors_path
+        
+      = yield
