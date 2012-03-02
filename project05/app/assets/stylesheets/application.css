@@ -19,3 +19,25 @@
 .head>h1 {
 	font-size: 300%;
 }
+
+#menubar {
+	list-style-type: none;
+	background-color: #ccc;
+	text-align: center;
+	width: 1000px;
+}
+
+#menubar>li {
+	display: inline;
+	margin-left: 9em;
+	margin-right: 9em;
+}
+
+#menubar>li>a {
+	color: blue;
+	text-decoration: none;
+}
+
+#menubar>li>a:visited {
+	color: blue;
+}

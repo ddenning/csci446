@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+	has_many :authors, dependent: :destroy
 	validates :title, :author, :body, presence: true
 	validate :author_cannot_be_pat
 	before_update :increment_edits
