@@ -9,11 +9,6 @@
 		margin-right: 600px;
 	}
 
-	.scroll {
-		height: 315px;
-		overflow: auto;
-	}
-
 	table {
 		text-align: center;
 	}
@@ -109,5 +104,9 @@
 
 	.actions {
 		margin-left: 13em;
+	}
+
+	.pagination {
+		margin-left: 30em;
 	}
 }

@@ -4,7 +4,7 @@
 <h2 class="page_header">All the World's Articles</h2>
 <%= link_to image_tag('add.png'), new_article_path %>
 <%= link_to 'New Article', new_article_path, title: "Create a new article" %>
-
+<p class="pagination"><%= will_paginate @articles %></p>
   <table>
     <tr>
       <th class="title">Title</th>
@@ -33,3 +33,4 @@
 </div>
 
 <p class="num_articles"><%= pluralize(Article.get_num_rows, 'article') %></p>
+<p class="pagination"><%= will_paginate @articles %></p>
