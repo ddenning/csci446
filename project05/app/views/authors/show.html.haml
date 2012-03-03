@@ -1,8 +1,15 @@
 %p#notice= notice
 = image_tag @author.photo.url(:portrait)
-%p
-  %b Name:
-  = @author.name
 = link_to 'Edit', edit_author_path(@author)
 |
 \#{link_to 'Back', authors_path}
+%p
+  %b Name:
+  = @author.name
+
+%h3 List of Articles From This Author
+.list
+  %ul
+    - Article.all.each do |article|
+      - if article.author == @author.name
+        %li= link_to truncate_title(article.title), articles_path<<"/#{article.id}"
