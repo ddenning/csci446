@@ -1,7 +1,6 @@
 class Article < ActiveRecord::Base
-	has_many :authors, dependent: :destroy
+	belongs_to :authors, dependent: :destroy
 	validates :title, :author, :body, presence: true
-	validate :author_cannot_be_pat
 	before_update :increment_edits
 
 	def get_paragraphs
@@ -14,11 +13,5 @@ class Article < ActiveRecord::Base
 
 	def increment_edits
 		self[:num_edits] += 1
-	end
-
-	def author_cannot_be_pat
-		if self[:author] =~ /pat/i
-			errors.add(:author, " cannot contain Pat")
-		end
 	end
 end

@@ -1,9 +1,18 @@
 class Author < ActiveRecord::Base
-	belongs_to :article
+	has_many :article
 
-	has_attached_file :photo, :styles => { :portrait => "500x300>" }
+	validates :name, presence: true
+	validate :name_cannot_be_pat
+
+	has_attached_file :photo, :styles => { :portrait => "300x500>" }
 
 	validates_attachment_presence :photo
 	validates_attachment_size :photo, :less_than => 3.megabytes
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
+	def name_cannot_be_pat
+		if self[:name] =~ /pat/i
+			errors.add(:name, " cannot contain Pat")
+		end
+	end
 end
