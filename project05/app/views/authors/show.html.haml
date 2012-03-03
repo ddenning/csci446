@@ -1,0 +1,8 @@
+%p#notice= notice
+= image_tag @author.photo.url(:portrait)
+%p
+  %b Name:
+  = @author.name
+= link_to 'Edit', edit_author_path(@author)
+|
+\#{link_to 'Back', authors_path}
