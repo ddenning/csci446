@@ -15,4 +15,13 @@ class Author < ActiveRecord::Base
 			errors.add(:name, " cannot contain Pat")
 		end
 	end
+
+	def get_relevent_articles
+		articles = []
+		Article.all.each do |article|
+      if article.author == :name
+      	articles.add(article)
+      end
+    end
+	end
 end
