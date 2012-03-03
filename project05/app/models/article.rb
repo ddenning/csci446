@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
-	belongs_to :authors, dependent: :destroy
-	validates :title, :author, :body, presence: true
+	belongs_to :author
+	validates :title, :body, presence: true
 	before_update :increment_edits
 
 	def get_paragraphs

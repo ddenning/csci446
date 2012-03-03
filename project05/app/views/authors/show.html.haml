@@ -10,5 +10,5 @@
 %h3 List of Articles From This Author
 .list
   %ul
-    - @author.get_relevent_articles.each do |article|
-      %li= link_to truncate_title(article.title), articles_path<<"/#{article.id}"
+    - @author.articles.each do |article|
+      %li= link_to truncate_title(article.title), articles_path<<article.id

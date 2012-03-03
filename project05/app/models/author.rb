@@ -1,6 +1,5 @@
 class Author < ActiveRecord::Base
-	has_many :article
-
+	has_many :articles
 	validates :name, presence: true
 	validate :name_cannot_be_pat
 
@@ -16,12 +15,4 @@ class Author < ActiveRecord::Base
 		end
 	end
 
-	def get_relevent_articles
-		articles = []
-		Article.all.each do |article|
-      if article.author == :name
-      	articles.add(article)
-      end
-    end
-	end
 end

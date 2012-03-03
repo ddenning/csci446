@@ -12,7 +12,7 @@
     = f.text_field :title, :size => 15
   .field
     = f.label :author
-    = select :article, :author, Author.all.collect {|author| [ author.name ]} #f.text_field :author, :size => 15
+    = select :article, :author_id, Author.all.collect {|author| [ author.name, author.id ]} #f.text_field :author, :size => 15
   .field
     = f.label :body
     = f.text_area :body, :cols => 75, :rows => 20

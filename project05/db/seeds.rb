@@ -17,5 +17,8 @@ Integer condimentum, augue condimentum commodo molestie, orci ipsum porta dolor,
 In feugiat interdum dapibus. Cras pulvinar ipsum vitae ante tincidunt tempus. Morbi congue dignissim dui in fermentum. Morbi congue justo sit amet nibh tempor in tempus nisi adipiscing. Suspendisse ut metus nisi. Nunc vitae purus orci. Suspendisse potenti. Donec tellus mi, molestie eu interdum vel, placerat ac eros. Nulla scelerisque imperdiet velit id porta. Sed nunc magna, convallis vitae elementum id, tincidunt quis dolor. Mauris porttitor, dolor quis sodales scelerisque, lacus augue laoreet sapien, sed condimentum mi est eu leo. Aliquam in justo id odio tincidunt lacinia. Fusce elementum fermentum egestas. Nulla condimentum ullamcorper mauris, vestibulum pretium lorem faucibus at. "
 
 for i in 0...100  do
-	Article.create!(:title => "Article#{i}", :author => "Me", :body => body, :num_edits => 22)
+	Article.create!(:title => "Article#{i}",
+									:body => body,
+									:num_edits => 22,
+									:author_id => 1)
 end

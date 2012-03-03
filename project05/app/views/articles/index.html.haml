@@ -16,7 +16,7 @@
     - (sort_articles(@articles)).each do |article|
       %tr{:class => cycle('list_line_odd', 'list_line_even')}
         %td.title= display_beginning_title_or_author(article.title)
-        %td.author= display_beginning_title_or_author(article.author)
+        %td.author= display_beginning_title_or_author(Author.find_by_id(article.author_id).name)
         %td.body= display_beginning_body(article.body)
         %td.time= article.created_at.strftime("%A, %b. %d %Y")
         %td.list_actions
