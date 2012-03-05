@@ -1,18 +1,14 @@
 %h2.page_header All the World's Authors
 = link_to image_tag('add.png'), new_author_path
-= link_to 'New Author', new_author_path, title: "Create a new article"
+= link_to 'New Author', new_author_path, title: "Create a new author"
 %table
   %tr
-    %th
-    %th Name
-    %th
-    %th
+    %th.name Name
     %th
   - @authors.each do |author|
-    %tr
-      %td Place holder
-      = #image_tag author.photo.url{:small}
+    %tr{:class => cycle('list_line_odd', 'list_line_even')}
       %td= author.name
-      %td= link_to 'Show', author
-      %td= link_to 'Edit', edit_author_path(author)
-      %td= link_to 'Destroy', author, confirm: 'Are you sure?', method: :delete
+      %td.list_actions
+        = link_to image_tag('magnifier.png'), author, title: "Display Author"
+        = link_to image_tag('table_edit.png'), edit_author_path(author), title: "Edit Author"
+        = link_to image_tag('bin.png'), author, title: "Delete Author", confirm: 'Are you sure?', method: :delete

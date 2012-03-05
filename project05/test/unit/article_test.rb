@@ -19,25 +19,14 @@ class ArticleTest < ActiveSupport::TestCase
 
   	assert article.invalid?
   	assert article.errors[:title].any?
-  	assert article.errors[:author].any?
+  	assert article.errors[:author_id].any?
   	assert article.errors[:body].any?
-  end
-
-  test "article author must not be pat" do
-  	article = Article.new( title: "title",
-  												body: "body")
-
-  	article.author = "pat"
-  	assert article.invalid?
-
-  	article.author = "Me"
-  	assert article.valid?
   end
 
   def new_article
   	Article.new(title: "title",
-  							author: "author",
-  							body: "body")
+  							body: "body",
+                author_id: 1)
   end
 
 end
