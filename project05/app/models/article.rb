@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
 	belongs_to :author
-	validates :title, :body, presence: true
+	validates :title, :body, :author_id, presence: true
 	before_update :increment_edits
 
 	def get_paragraphs

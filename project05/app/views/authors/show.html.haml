@@ -1,5 +1,5 @@
 %p#notice= notice
-= image_tag @author.photo.url(:portrait)
+= image_tag @author.photo.url(:portrait), class: 'pic'
 = link_to 'Edit', edit_author_path(@author)
 |
 \#{link_to 'Back', authors_path}
@@ -11,4 +11,4 @@
 .list
   %ul
     - @author.articles.each do |article|
-      %li= link_to truncate_title(article.title), articles_path<<article.id
+      %li= link_to truncate_title(article.title), articles_path + "/" + article.id.to_s

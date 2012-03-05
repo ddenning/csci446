@@ -8,6 +8,6 @@
   %li= mail_to "", image_tag('email.png') << "email", subject: @article.title, body: request.url, title: "Email Article"
 %h1.article_title= @article.title
 %p
-  by #{@article.author}. #{pluralize(@article.num_edits, 'edit')} since #{@article.created_at.strftime("%b. %d %Y")}.
+  by #{@article.author.name}. #{pluralize(@article.num_edits, 'edit')} since #{@article.created_at.strftime("%b. %d %Y")}.
 - @article.get_paragraphs.each do |paragraph|
   %p.body_paragraph= paragraph

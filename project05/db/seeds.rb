@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+temp1 = Author.create!(:name => "Tux")
+id1 = temp1.id
+temp1.save
+temp2 = Author.create!(:name => "Other Tux")
+id2 = temp2.id
+temp2.save
+
 body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet ligula sit amet tortor ornare pretium congue a lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum suscipit turpis ut lectus semper euismod. Nam vel dolor nec ipsum pellentesque faucibus. Nunc nec nunc felis. Aenean vestibulum, purus eget elementum tempor, purus nisl lobortis mauris, vel convallis eros nibh at libero. Integer iaculis, turpis nec iaculis malesuada, justo neque accumsan ante, ut pellentesque diam sapien et metus. Ut volutpat, nisl et tempor sollicitudin, sapien augue posuere urna, sed aliquet nisl tortor ut est.
 
 Etiam nec velit risus. Mauris dictum, eros id ullamcorper scelerisque, magna magna consequat ligula, ut tempus justo tortor quis urna. Vestibulum ornare turpis at mi tempor eleifend. Donec sem risus, rhoncus at iaculis sit amet, rhoncus vitae mi. Donec pulvinar porta felis eu auctor. Phasellus eget augue leo, nec posuere felis. Quisque felis ipsum, consectetur porttitor dapibus eget, dictum malesuada urna.
@@ -16,9 +23,16 @@ Integer condimentum, augue condimentum commodo molestie, orci ipsum porta dolor,
 
 In feugiat interdum dapibus. Cras pulvinar ipsum vitae ante tincidunt tempus. Morbi congue dignissim dui in fermentum. Morbi congue justo sit amet nibh tempor in tempus nisi adipiscing. Suspendisse ut metus nisi. Nunc vitae purus orci. Suspendisse potenti. Donec tellus mi, molestie eu interdum vel, placerat ac eros. Nulla scelerisque imperdiet velit id porta. Sed nunc magna, convallis vitae elementum id, tincidunt quis dolor. Mauris porttitor, dolor quis sodales scelerisque, lacus augue laoreet sapien, sed condimentum mi est eu leo. Aliquam in justo id odio tincidunt lacinia. Fusce elementum fermentum egestas. Nulla condimentum ullamcorper mauris, vestibulum pretium lorem faucibus at. "
 
-for i in 0...100  do
+for i in 0...50  do
 	Article.create!(:title => "Article#{i}",
 									:body => body,
 									:num_edits => 22,
-									:author_id => 1)
+									:author_id => id1)
+end
+
+for i in 50...100 do
+	Article.create!(:title => "Article#{i}",
+									:body => body,
+									:num_edits => 7,
+									:author_id => id2)
 end
