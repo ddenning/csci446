@@ -1,13 +1,21 @@
+- content_for :subtitle do
+  with a name .com hipsters love!
 %h2.page_header All the World's Authors
 = link_to image_tag('add.png'), new_author_path
 = link_to 'New Author', new_author_path, title: "Create a new author"
 %table
   %tr
     %th.name Name
+    %th.num_articles Num Articles
+    %th.latest_article Latest Article
+    %th.last_activity Last Activity
     %th
   - @authors.each do |author|
     %tr{:class => cycle('list_line_odd', 'list_line_even')}
       %td= author.name
+      %td= author.articles.size
+      %td= link_to truncate_title(first_article(author.articles).title), articles_path + "/" + first_article(author.articles).id.to_s
+      %td= first_article(author.articles).created_at.strftime("%A, %b. %d %Y")
       %td.list_actions
         = link_to image_tag('magnifier.png'), author, title: "Display Author"
         = link_to image_tag('table_edit.png'), edit_author_path(author), title: "Edit Author"
