@@ -8,8 +8,8 @@ module ArticlesHelper
 	end
 
 	def display_beginning_title_or_author(str)
-		if str.size >= 20
-			str.slice(0, 17) << "..."
+		if str.size >= 15
+			str.slice(0, 12) << "..."
 		else
 			str
 		end

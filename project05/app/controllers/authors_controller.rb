@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    @authors = Author.paginate page: params[:page], order: 'created_at desc', per_page: 10
 
     respond_to do |format|
       format.html # index.html.erb

@@ -3,7 +3,7 @@ class Author < ActiveRecord::Base
 	validates :name, presence: true
 	validate :name_cannot_be_pat
 
-	has_attached_file :photo, :styles => { :portrait => "300x500>"}
+	has_attached_file :photo, :styles => { :portrait => "300x500>", :small => "100x180>"}
 
 	validates_attachment_size :photo, :less_than => 3.megabytes
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']

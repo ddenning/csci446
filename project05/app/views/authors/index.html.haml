@@ -3,8 +3,11 @@
 %h2.page_header All the World's Authors
 = link_to image_tag('add.png'), new_author_path
 = link_to 'New Author', new_author_path, title: "Create a new author"
+%br/
+%p.pagination= will_paginate @authors
 %table
   %tr
+    %th
     %th.name Name
     %th.num_articles Num Articles
     %th.latest_article Latest Article
@@ -12,11 +15,18 @@
     %th
   - @authors.each do |author|
     %tr{:class => cycle('list_line_odd', 'list_line_even')}
+      %td= image_tag author.photo.url(:small)
       %td= author.name
       %td= author.articles.size
-      %td= link_to truncate_title(first_article(author.articles).title), articles_path + "/" + first_article(author.articles).id.to_s
-      %td= first_article(author.articles).created_at.strftime("%A, %b. %d %Y")
+      -unless author.articles.empty?
+        %td= link_to truncate_title(first_article(author.articles).title), articles_path + "/" + first_article(author.articles).id.to_s
+        %td= first_article(author.articles).created_at.strftime("%A, %b. %d %Y")
+      -else
+        %td No Articles
+        %td= author.created_at.strftime("%A, %b. %d %Y")
       %td.list_actions
         = link_to image_tag('magnifier.png'), author, title: "Display Author"
         = link_to image_tag('table_edit.png'), edit_author_path(author), title: "Edit Author"
         = link_to image_tag('bin.png'), author, title: "Delete Author", confirm: 'Are you sure?', method: :delete
+%br
+%p.pagination= will_paginate @authors
