@@ -55,5 +55,8 @@ module Gamez
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Configure generators to use .sass files by default, instead of .scss
+    config.sass.preferred_syntax = :sass
   end
 end
