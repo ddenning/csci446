@@ -1,7 +1,7 @@
 class Admin::AdminController < ApplicationController
-	#before_filter require_user
 
-	#filter_acess_to :all
+	#before_filter :require_user
+	#filter_access_to :all
 
 	def index
 		

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     def require_user
     	unless current_user
     		flash[:notice] = "You must be logged in to access that."
-    		redirect_to root_url  		
+    		redirect_to root_url
     	end
     end
 

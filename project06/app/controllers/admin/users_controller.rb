@@ -45,12 +45,17 @@ class Admin::UsersController < Admin::AdminController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to [:admin, @user], notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+      if verify_recaptcha
+        if @user.save
+          format.html { redirect_to [:admin, @user], notice: 'User was successfully created.' }
+          format.json { render json: @user, status: :created, location: @user }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:error] = "You did not pass the recaptcha test."
+        render action: "new"
       end
     end
   end

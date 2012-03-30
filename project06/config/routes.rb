@@ -7,7 +7,7 @@ Gamez::Application.routes.draw do
 
   namespace :admin do
     resources :users
-    root :to => 'admin#index'
+    root :to => 'users#index'
   end
 
   # The priority is based upon order of creation:
