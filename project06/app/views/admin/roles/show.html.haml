@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @role.name
+%p
+  %b Description:
+  = @role.description
+%p
+  %b Users count:
+  = @role.users_count
+
+= link_to 'Edit', edit_admin_role_path(@role)
+\|
+= link_to 'Back', admin_roles_path

@@ -8,6 +8,8 @@
   %body
     #navigation
       -if current_user
+        = link_to "View Roles", admin_roles_path
+        =" | "
         = link_to "Edit Profile", edit_admin_user_path(:current)
         = " | "
         = link_to "Logout", logout_path

@@ -7,6 +7,7 @@ Gamez::Application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :roles
     root :to => 'users#index'
   end
 

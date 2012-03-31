@@ -1,6 +1,5 @@
 class Admin::UsersController < Admin::AdminController
-  include ApplicationHelper
-
+  
   # GET /users
   # GET /users.json
   def index
@@ -45,17 +44,12 @@ class Admin::UsersController < Admin::AdminController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if verify_recaptcha
-        if @user.save
-          format.html { redirect_to [:admin, @user], notice: 'User was successfully created.' }
-          format.json { render json: @user, status: :created, location: @user }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
-        end
+      if [@user.valid?, verify_recaptcha(@user)].all? && @user.save
+        format.html { redirect_to [:admin, @user], notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
       else
-        flash[:error] = "You did not pass the recaptcha test."
-        render action: "new"
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
