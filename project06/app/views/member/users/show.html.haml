@@ -1,0 +1,21 @@
+%p#notice= notice
+
+= image_tag @user.photo.url(:portrait)
+
+%p
+  %b Username:
+  = @user.username
+%p
+  %b Password:
+  = @user.password
+%p
+  %b First name:
+  = @user.first_name
+%p
+  %b Last name:
+  = @user.last_name
+%p
+  %b Email:
+  = @user.email
+
+= link_to 'Edit', edit_member_user_path(@user)

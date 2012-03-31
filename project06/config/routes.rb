@@ -11,6 +11,11 @@ Gamez::Application.routes.draw do
     root :to => 'users#index'
   end
 
+  namespace :member do
+    resources :users, :only => [:show, :edit, :update]
+    root :to => 'users#show'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
