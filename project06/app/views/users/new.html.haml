@@ -1,6 +1,6 @@
-%h1 New user
+%h1 Register
 
-= form_for [:admin, @user], :html => { :multipart => true } do |f|
+= form_for @user, :html => { :multipart => true } do |f|
   -if @user.errors.any?
     #error_explanation
       %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
@@ -34,4 +34,4 @@
   .actions
     = f.submit 'Save'
 
-= link_to 'Back', admin_users_path
+= link_to 'Back', login_path

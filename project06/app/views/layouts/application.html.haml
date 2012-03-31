@@ -8,13 +8,15 @@
   %body
     #navigation
       -if current_user
-        = link_to "View Roles", admin_roles_path
-        =" | "
-        = link_to "Edit Profile", edit_admin_user_path(:current)
+        = link_to "List Users", admin_users_path
+        = " | "
+        = link_to "List Roles", admin_roles_path
+        = " | "
+        = link_to "Edit Profile", edit_member_user_path(:current)
         = " | "
         = link_to "Logout", logout_path
       -else
-        = link_to "Register", new_admin_user_path
+        = link_to "Register", new_user_path
         = " | "
         = link_to "Login", login_path
     = yield

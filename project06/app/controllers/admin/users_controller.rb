@@ -35,7 +35,7 @@ class Admin::UsersController < Admin::AdminController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -57,7 +57,7 @@ class Admin::UsersController < Admin::AdminController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = current_user
+    @user = User.find(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
