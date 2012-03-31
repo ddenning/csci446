@@ -1,5 +1,7 @@
 %p#notice= notice
 
+= image_tag @user.photo.url(:portrait)
+
 %p
   %b Username:
   = @user.username
