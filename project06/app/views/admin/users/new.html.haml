@@ -30,6 +30,10 @@
     = f.label :photo
     = f.file_field :photo
   .field
+    -Role.find(:all).each do |role|
+      = f.label role.name
+      = radio_button("user", "role_id", role.id)
+  .field
     = recaptcha_tags
   .actions
     = f.submit 'Save'

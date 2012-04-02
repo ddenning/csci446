@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.role_id = Role.find_by_name(:member).id
 
     respond_to do |format|
       if [@user.valid?, verify_recaptcha(@user)].all? && @user.save
