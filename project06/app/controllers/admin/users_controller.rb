@@ -74,11 +74,16 @@ class Admin::UsersController < Admin::AdminController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    if @user.id == current_user.id
+      flash[:notice] = "You can't delete yourself."
+      redirect_to admin_users_url
+    else
+      @user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to admin_users_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to admin_users_url }
+        format.json { head :no_content }
+      end
     end
   end
 end
