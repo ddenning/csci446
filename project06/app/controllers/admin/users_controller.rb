@@ -1,5 +1,7 @@
 class Admin::UsersController < Admin::AdminController
   
+  filter_access_to :all
+  
   # GET /users
   # GET /users.json
   def index
@@ -75,7 +77,7 @@ class Admin::UsersController < Admin::AdminController
   def destroy
     @user = User.find(params[:id])
     if @user.id == current_user.id
-      flash[:notice] = "You can't delete yourself."
+      flash[:error] = "You can't delete yourself."
       redirect_to admin_users_url
     else
       @user.destroy

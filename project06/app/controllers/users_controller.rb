@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  filter_access_to :all
+
   # GET /users/new
   # GET /users/new.json
   def new

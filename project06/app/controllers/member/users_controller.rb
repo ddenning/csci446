@@ -1,5 +1,7 @@
 class Member::UsersController < Member::MemberController
 
+  filter_access_to :all
+
   # GET /users/1
   # GET /users/1.json
   def show

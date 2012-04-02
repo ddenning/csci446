@@ -31,4 +31,16 @@ class ApplicationController < ActionController::Base
     	end
     end
     
+  protected
+
+    def permission_denied
+      flash[:error] = "You do not have access to that page."
+      if current_user.role.name == "member"
+        redirect_to member_root_url
+      elsif current_user.role.name == "admin"
+        redirect_to admin_root_url
+      else
+        redirect_to root_url
+      end          
+    end
 end

@@ -1,5 +1,6 @@
 class Admin::RolesController < Admin::AdminController
 
+  filter_access_to :all
   # GET /roles
   # GET /roles.json
   def index
