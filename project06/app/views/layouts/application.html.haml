@@ -6,6 +6,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    %p#notice= notice
+    %p#error= flash[:error]
     #navigation
       -if current_user
         = link_to "List Users", admin_users_path

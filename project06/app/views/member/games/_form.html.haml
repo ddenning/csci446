@@ -1,4 +1,4 @@
-= form_for @game do |f|
+= form_for [:member, @game] do |f|
   -if @game.errors.any?
     #error_explanation
       %h2= "#{pluralize(@game.errors.count, "error")} prohibited this game from being saved:"
@@ -12,8 +12,5 @@
   .field
     = f.label :rating
     = f.text_field :rating
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
   .actions
     = f.submit 'Save'

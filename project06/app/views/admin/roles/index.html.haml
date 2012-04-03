@@ -4,7 +4,6 @@
   %tr
     %th Name
     %th Description
-    %th Users count
     %th
     %th
     %th
@@ -13,7 +12,6 @@
     %tr
       %td= role.name
       %td= role.description
-      %td= role.users_count
       %td= link_to 'Show', [:admin, role]
       %td= link_to 'Edit', edit_admin_role_path(role)
       %td= link_to 'Destroy', [:admin, role], :confirm => 'Are you sure?', :method => :delete

@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Login successful"
+      flash[:notice] = "Welcome back  #{@user_session.user.first_name} #{@user_session.user.last_name}"
       if @user_session.user.role.name == "admin"
         redirect_to admin_root_url
       else

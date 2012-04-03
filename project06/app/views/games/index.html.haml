@@ -6,18 +6,11 @@
     %th Rating
     %th User
     %th
-    %th
-    %th
-
+    
   - @games.each do |game|
     %tr
-      %td= game.title
+      %td= link_to game.title, game
       %td= game.rating
-      %td= game.user_id
+      %td= game.user.full_name
       %td= link_to 'Show', game
-      %td= link_to 'Edit', edit_game_path(game)
-      %td= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
-
 %br
-
-= link_to 'New Game', new_game_path

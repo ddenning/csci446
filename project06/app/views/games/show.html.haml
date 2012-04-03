@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %p
   %b Title:
   = @game.title
@@ -8,8 +6,6 @@
   = @game.rating
 %p
   %b User:
-  = @game.user_id
-
-= link_to 'Edit', edit_game_path(@game)
-\|
+  = @game.user.full_name
+  
 = link_to 'Back', games_path

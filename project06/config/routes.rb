@@ -1,6 +1,6 @@
 Gamez::Application.routes.draw do
 
-  resources :games
+  resources :games, :only => [:index, :show]
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
 
@@ -17,7 +17,7 @@ Gamez::Application.routes.draw do
   end
 
   namespace :member do
-    resources :games
+    resources :games, :except => [:destroy]
     resources :users, :only => [:show, :edit, :update]
     root :to => 'games#index'
   end
