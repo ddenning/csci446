@@ -10,11 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Welcome back  #{@user_session.user.first_name} #{@user_session.user.last_name}"
-      if @user_session.user.role.name == "admin"
-        redirect_to admin_root_url
-      else
-        redirect_to member_root_url
-      end
+      redirect_to namespaced_root
     else
       render :action => :new
     end

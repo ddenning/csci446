@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :namespaced_root
 
   before_filter { Authorization.current_user = current_user }
 
@@ -30,6 +30,19 @@ class ApplicationController < ActionController::Base
     		redirect_to root_url
     	end
     end
+
+    def namespaced_root
+    if !current_user
+      return root_url
+    end
+    if current_user.role.name == "member"
+      return member_root_url
+    elsif current_user.role.name == "admin"
+      return admin_root_url
+    else
+      return root_url
+    end
+  end
     
   protected
 
