@@ -2,13 +2,12 @@
 
 = link_to 'Add a game', new_admin_game_path
 
+%p.pagination= will_paginate @games
 %table
   %tr
     %th Title
     %th Rating
     %th User
-    %th
-    %th
     %th
 
   - sort_games(@games).each do |game|
@@ -16,5 +15,4 @@
       %td= link_to game.title, edit_admin_game_path(game)
       %td= game.rating
       %td= link_to display_user(game.user), edit_admin_user_path(game.user)
-      %td= link_to 'Show', [:admin, game]
       %td= link_to 'Destroy', [:admin, game], :confirm => 'Are you sure?', :method => :delete

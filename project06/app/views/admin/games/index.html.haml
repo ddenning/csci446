@@ -1,5 +1,6 @@
 %h1 Listing games
 
+%p.pagination= will_paginate @games
 %table
   %tr
     %th Title
@@ -11,11 +12,9 @@
 
   - sort_games(@games).each do |game|
     %tr
-      %td= link_to game.title, [:admin, game]
+      %td= link_to game.title, edit_admin_game_path(game)
       %td= game.rating
-      %td= link_to display_user(game.user), [:admin, game.user]
-      %td= link_to 'Show', [:admin, game]
-      %td= link_to 'Edit', edit_admin_game_path(game)
+      %td= link_to game.user.full_name, edit_admin_user_path(game.user)
       %td= link_to 'Destroy', [:admin, game], :confirm => 'Are you sure?', :method => :delete
 
 %br

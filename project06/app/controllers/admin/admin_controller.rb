@@ -5,7 +5,7 @@ class Admin::AdminController < ApplicationController
 	filter_access_to :all
 
 	def index
-		@games = Game.all
+		@games = Game.paginate page: params[:page], order: 'created_at desc', per_page: 10
 	end
 	
 end

@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Gamez
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #head
+      = link_to "Register", new_user_path
+      = " | "
+      = link_to "Login", login_path
+    %p#notice= notice
+    %p#error= flash[:error]
+    %h1= link_to "Gamez", namespaced_root(current_user)
+    = yield

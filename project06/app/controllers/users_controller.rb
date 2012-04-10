@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  layout 'public'
   filter_access_to :all
 
   # GET /users/new

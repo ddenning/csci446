@@ -1,13 +1,12 @@
 %h1 My Gamez
 = link_to 'add a new game', new_member_game_path
 
+%p.pagination= will_paginate @games
 %table
   %tr
     %th Title
     %th Rating
     %th User
-    %th
-    %th
 
   - sort_games(@games).each do |game|
     %tr

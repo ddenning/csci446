@@ -1,5 +1,6 @@
 %h1 Listing games
 
+%p.pagination= will_paginate @game
 %table
   %tr
     %th Title
@@ -12,5 +13,4 @@
       %td= link_to game.title, game
       %td= game.rating
       %td= game.user.full_name
-      %td= link_to 'Show', game
 %br

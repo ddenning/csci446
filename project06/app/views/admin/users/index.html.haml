@@ -3,6 +3,7 @@
 
 %h1 Listing users
 
+%p.pagination= will_paginate @users
 %table
   %tr
     %th Name
@@ -18,7 +19,6 @@
       %td= user.username
       %td= time_ago_in_words(user.current_login_at)
       %td= user.games.count
-      %td= link_to 'Show', [:admin, user]
       %td= link_to 'Destroy', [:admin, user], :confirm => 'Are you sure?', :method => :delete
 
 %br

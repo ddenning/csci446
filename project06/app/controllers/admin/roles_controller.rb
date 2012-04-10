@@ -4,7 +4,7 @@ class Admin::RolesController < Admin::AdminController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.all
+    @roles = Role.paginate page: params[:page], order: 'created_at desc', per_page: 10
 
     respond_to do |format|
       format.html # index.html.erb

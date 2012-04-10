@@ -10,7 +10,13 @@
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :rating
-    = f.text_field :rating
+    = f.label :Amazing
+    = radio_button("game", "rating", "Amazing")
+    = f.label :Good
+    = radio_button("game", "rating", "Good")
+    = f.label :Meh
+    = radio_button("game", "rating", "Meh")
+    = f.label :Horrible
+    = radio_button("game", "rating", "Horrible")
   .actions
     = f.submit 'Save'
