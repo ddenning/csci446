@@ -13,7 +13,11 @@ module GamesHelper
 
 	def percent_rated(user)
 		count = user.games.count
-		100 * (count - user.games.find_all_by_rating("").count) / count
+		if count != 0
+			return 100 * (count - user.games.find_all_by_rating("").count) / count
+		else
+			return 0
+		end
 	end
 
 	def count_games(games)
