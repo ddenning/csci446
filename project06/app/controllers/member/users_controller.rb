@@ -28,6 +28,7 @@ class Member::UsersController < Member::MemberController
         format.html { redirect_to member_root_url, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else
+        flash[:error] = "Could not save profile"
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

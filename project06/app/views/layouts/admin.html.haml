@@ -10,7 +10,8 @@
       \Logged in as #{link_to current_user.full_name, edit_admin_user_path(current_user)}, admin. #{link_to 'Admin', admin_root_url} #{link_to 'Log Out', logout_path}
     %p#notice= notice
     %p#error= flash[:error]
-    %h1= link_to "Gamez", namespaced_root(current_user)
+    %h1= link_to "Gamez", admin_games_url
+    %h1 Admin
     #navigation
       = link_to "Games", admin_games_url
       = link_to "Users", admin_users_url

@@ -63,9 +63,10 @@ class Admin::UsersController < Admin::AdminController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to admin_users_url, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to admin_users_url, notice: 'Successfully updated profile.' }
         format.json { head :no_content }
       else
+        flash[:error] = "Could not save profile."
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

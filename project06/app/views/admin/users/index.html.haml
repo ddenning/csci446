@@ -5,24 +5,20 @@
 
 %table
   %tr
+    %th Name
     %th Username
-    %th Role
-    %th First name
-    %th Last name
-    %th Email
-    %th
+    %th Last Login
+    %th Number of Games
     %th
     %th
 
   - sort_users(@users).each do |user|
     %tr
+      %td= link_to user.full_name, edit_admin_user_path(user)
       %td= user.username
-      %td= user.role.name
-      %td= user.first_name
-      %td= user.last_name
-      %td= user.email
+      %td= time_ago_in_words(user.current_login_at)
+      %td= user.games.count
       %td= link_to 'Show', [:admin, user]
-      %td= link_to 'Edit', edit_admin_user_path(user)
       %td= link_to 'Destroy', [:admin, user], :confirm => 'Are you sure?', :method => :delete
 
 %br

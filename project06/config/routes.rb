@@ -10,10 +10,11 @@ Gamez::Application.routes.draw do
   match "logout" => "user_sessions#destroy"
 
   namespace :admin do
+    resources :admin, :only => [:index]
     resources :users
     resources :roles
     resources :games
-    root :to => 'games#index'
+    root :to => 'admin#index'
   end
 
   namespace :member do

@@ -14,4 +14,6 @@
       %td= link_to game.title, edit_member_game_path(game)
       %td= game.rating
       %td= display_user(game.user)
+
+\I've created #{pluralize(@games.count, 'game')}, #{number_to_percentage(percent_rated(current_user), :precision => 0)} are rated.
 	

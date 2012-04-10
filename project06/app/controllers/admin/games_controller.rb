@@ -46,9 +46,10 @@ class Admin::GamesController < Admin::AdminController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to [:admin, @game], notice: 'Game was successfully created.' }
+        format.html { redirect_to [:admin, @game], notice: "Successfully added #{@game.title}" }
         format.json { render json: @game, status: :created, location: @game }
       else
+        flash[:error] = "Could not create game."
         format.html { render action: "new" }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
@@ -62,9 +63,10 @@ class Admin::GamesController < Admin::AdminController
 
     respond_to do |format|
       if @game.update_attributes(params[:game])
-        format.html { redirect_to admin_games_url, notice: 'Game was successfully updated.' }
+        format.html { redirect_to admin_games_url, notice: "Successfully update #{@game.title}" }
         format.json { head :no_content }
       else
+        flash[:error] = "Could not save changes."
         format.html { render action: "edit" }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end

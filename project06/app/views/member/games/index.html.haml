@@ -14,7 +14,7 @@
       %td= game.rating
       %td= display_user(game.user)
       %td= link_to 'Show', [:member, game]
-      -if permitted_to? :edit, [:member, game]
+      -if display_edit?(game)
         %td= link_to 'Edit', edit_member_game_path(game)
 
 %br
