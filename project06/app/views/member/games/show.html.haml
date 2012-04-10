@@ -8,6 +8,7 @@
   %b User:
   = @game.user.full_name
 
-= link_to 'Edit', edit_member_game_path(@game)
-\|
+- if permitted_to? :edit, @game
+  = link_to 'Edit', edit_member_game_path(@game)
+  \|
 = link_to 'Back', member_games_path

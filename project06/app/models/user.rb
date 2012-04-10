@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-	acts_as_authentic
+	acts_as_authentic do |c|
+		c.merge_validates_length_of_password_confirmation_field_options :minimum => 6
+		c.merge_validates_length_of_password_field_options :minimum => 6
+		c.merge_validates_length_of_login_field_options :within => 6..100
+	end
 
 	belongs_to :role
 	has_many :games

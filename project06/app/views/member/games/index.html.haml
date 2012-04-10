@@ -8,13 +8,14 @@
     %th
     %th
 
-  - @games.each do |game|
+  - sort_games(@games).each do |game|
     %tr
       %td= link_to game.title, [:member, game]
       %td= game.rating
       %td= game.user.full_name
       %td= link_to 'Show', [:member, game]
-      %td= link_to 'Edit', edit_member_game_path(game)
+      -if permitted_to? :edit, [:member, game]
+        %td= link_to 'Edit', edit_member_game_path(game)
 
 %br
 

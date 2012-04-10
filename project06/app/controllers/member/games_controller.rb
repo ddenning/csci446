@@ -36,7 +36,7 @@ class Member::GamesController < Member::MemberController
 
   # GET /games/1/edit
   def edit
-    @game = Game.find(params[:id])
+    @game = current_user.games.find(params[:id])
   end
 
   # POST /games

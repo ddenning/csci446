@@ -31,13 +31,12 @@ class ApplicationController < ActionController::Base
     	end
     end
 
-    def namespaced_root
-    if !current_user
+    def namespaced_root(user)
+    if !user
       return root_url
-    end
-    if current_user.role.name == "member"
+    elsif user.role.name == "member"
       return member_root_url
-    elsif current_user.role.name == "admin"
+    elsif user.role.name == "admin"
       return admin_root_url
     else
       return root_url

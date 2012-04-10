@@ -7,7 +7,7 @@
     %th User
     %th
     
-  - @games.each do |game|
+  - sort_games(@games).each do |game|
     %tr
       %td= link_to game.title, game
       %td= game.rating

@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Welcome back  #{@user_session.user.first_name} #{@user_session.user.last_name}"
-      redirect_to namespaced_root
+      redirect_to namespaced_root(@user_session.user)
     else
       render :action => :new
     end
