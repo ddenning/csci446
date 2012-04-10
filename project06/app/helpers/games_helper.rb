@@ -13,8 +13,14 @@ module GamesHelper
 
 	def percent_rated(user)
 		count = user.games.count
+		count1 = 0
+    user.games.each do |game|
+      unless game.rating
+        count1 += 1
+      end
+    end
 		if count != 0
-			return 100 * (count - user.games.find_all_by_rating("").count) / count
+			return 100 * (count - count1) / count
 		else
 			return 0
 		end

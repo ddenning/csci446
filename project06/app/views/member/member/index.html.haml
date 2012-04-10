@@ -14,5 +14,7 @@
       %td= game.rating
       %td= display_user(game.user)
 
+= current_user.games.count
+%br
 \I've created #{pluralize(@games.count, 'game')}, #{number_to_percentage(percent_rated(current_user), :precision => 0)} are rated.
 	
