@@ -5,7 +5,7 @@ class Member::MemberController < ApplicationController
 	filter_access_to :all
 
 	def index
-		
+		@games = current_user.games
 	end
 	
 end

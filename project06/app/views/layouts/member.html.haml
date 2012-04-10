@@ -7,8 +7,8 @@
     = csrf_meta_tags
   %body
     #head
-      \Logged in as #{link_to current_user.first_name + ' ' + current_user.last_name, edit_member_user_path(:current)}, member. #{link_to 'My Games', member_root_url} #{link_to 'Log Out', logout_path}
+      \Logged in as #{link_to current_user.full_name, edit_member_user_path(:current)}, member. #{link_to 'My Games', member_root_url} #{link_to 'Log Out', logout_path}
     %p#notice= notice
     %p#error= flash[:error]
-    %h1= link_to "Gamez", namespaced_root(current_user)
+    %h1= link_to "Gamez", member_games_url
     = yield

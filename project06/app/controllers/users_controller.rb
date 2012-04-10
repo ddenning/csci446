@@ -24,6 +24,7 @@ class UsersController < ApplicationController
         format.html { redirect_to [:member, @user], notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
+        flash[:error] = "Sorry, could not register you"
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

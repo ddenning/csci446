@@ -17,9 +17,10 @@ Gamez::Application.routes.draw do
   end
 
   namespace :member do
+    resources :member, :only => [:index]
     resources :games, :except => [:destroy]
     resources :users, :only => [:show, :edit, :update]
-    root :to => 'games#index'
+    root :to => 'member#index'
   end
 
   # The priority is based upon order of creation:

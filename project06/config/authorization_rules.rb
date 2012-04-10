@@ -5,7 +5,7 @@ authorization do
 	end
 
 	role :member do
-		has_permission_on :member_controller, :to => :index
+		has_permission_on :member_member, :to => :index
 		has_permission_on :member_users, :to => [:show, :edit, :update]
 		has_permission_on :member_games, :to => [:index, :show, :new, :create]
 		has_permission_on :member_games, :to => [:edit, :update] do
@@ -14,7 +14,6 @@ authorization do
 	end
 	
 	role :admin do
-		has_permission_on :admin_admin, :to => :index
 		has_permission_on :admin_users, :to => :manage
 		has_permission_on :admin_roles, :to => :manage
 		has_permission_on :admin_games, :to => :manage

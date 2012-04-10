@@ -12,7 +12,7 @@
     %tr
       %td= link_to game.title, [:member, game]
       %td= game.rating
-      %td= game.user.full_name
+      %td= display_user(game.user)
       %td= link_to 'Show', [:member, game]
       -if permitted_to? :edit, [:member, game]
         %td= link_to 'Edit', edit_member_game_path(game)

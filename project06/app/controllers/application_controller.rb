@@ -32,16 +32,16 @@ class ApplicationController < ActionController::Base
     end
 
     def namespaced_root(user)
-    if !user
-      return root_url
-    elsif user.role.name == "member"
-      return member_root_url
-    elsif user.role.name == "admin"
-      return admin_root_url
-    else
-      return root_url
+      if !user
+        return root_url
+      elsif user.role.name == "member"
+        return member_root_url
+      elsif user.role.name == "admin"
+        return admin_root_url
+      else
+        return root_url
+      end
     end
-  end
     
   protected
 

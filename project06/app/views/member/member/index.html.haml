@@ -1,0 +1,17 @@
+%h1 My Gamez
+= link_to 'add a new game', new_member_game_path
+
+%table
+  %tr
+    %th Title
+    %th Rating
+    %th User
+    %th
+    %th
+
+  - sort_games(@games).each do |game|
+    %tr
+      %td= link_to game.title, edit_member_game_path(game)
+      %td= game.rating
+      %td= display_user(game.user)
+	
