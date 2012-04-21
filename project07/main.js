@@ -1,6 +1,6 @@
 var guessesLeft = 10;
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
-var correctGuess = Math.floor(Math.random*100) + 1;
+var correctGuess = Math.floor(Math.random()*100) + 1;
 
 $(function() {
   updateScore(guessesLeft);
@@ -23,26 +23,30 @@ function updateScore(score) {
 function guess() {
 	guessesLeft--;
 	updateScore(guessesLeft);
-	/*if(!(validateResponse($('#guess').value)){
-		checkLose();
-	}*/
+	var value = $('#guess').val();
+	validateResponse(value);
 }
 
 function validateResponse(value) {
 	if(value < correctGuess) {
-		//TODO: Diplay Too Low
+		$('#displayResult').html("<p>That's too low.</p>");
 	}
 	else if(value > correctGuess) {
-		//TODO: Display Too High
+		$('#displayResult').html("<p>That's too high.</p>");
 	}
 	else {
-		//TODO: Display you win, prompt for name for high score, update high score, prompt for play again
+		alert("You win!");
+		playAgain();
 	}
+
+	checkLose();
+	return;
 }
 
 function checkLose () {
 	if(guessesLeft <= 0) {
-		//TODO: Display Losing Condition, prompt play again
+		$('#content').html("<h1>You Lose!</h1>");
+		playAgain();
 	}
 }
 
@@ -50,4 +54,11 @@ function playAgain () {
 	if (confirm("Play Again?")) {
 		window.location.reload();
 	};
+}
+
+function replaceContents(message) {
+	var element = $('#content');
+	var temp = element.html();
+	element.html("<h1>" + message + "</h1>");
+	element.html(temp);
 }
