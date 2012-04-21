@@ -8,6 +8,7 @@ $(function() {
   $('#btnGuess').click(function () {
   	guess();
   });
+  onEnter();
 });
 
 function populateHighScores(scores) {
@@ -54,6 +55,14 @@ function playAgain () {
 	if (confirm("Play Again?")) {
 		window.location.reload();
 	};
+}
+
+function onEnter() {
+	$("#guess").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#btnGuess").click();
+    }
+	});
 }
 
 function replaceContents(message) {
