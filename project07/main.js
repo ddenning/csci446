@@ -5,7 +5,9 @@ var correctGuess = Math.floor(Math.random*100) + 1;
 $(function() {
   updateScore(guessesLeft);
   populateHighScores(highScores);
-  $('#btnGuess').click(guess());
+  $('#btnGuess').click(function () {
+  	guess();
+  });
 });
 
 function populateHighScores(scores) {
@@ -15,15 +17,37 @@ function populateHighScores(scores) {
 }
 
 function updateScore(score) {
-  $('h2#score span#guessesLeft').append(score);
+  $('span#guessesLeft').html(score);
 }
 
 function guess() {
-	validateResponse($('#guess').value)
 	guessesLeft--;
 	updateScore(guessesLeft);
+	/*if(!(validateResponse($('#guess').value)){
+		checkLose();
+	}*/
 }
 
 function validateResponse(value) {
-	
+	if(value < correctGuess) {
+		//TODO: Diplay Too Low
+	}
+	else if(value > correctGuess) {
+		//TODO: Display Too High
+	}
+	else {
+		//TODO: Display you win, prompt for name for high score, update high score, prompt for play again
+	}
+}
+
+function checkLose () {
+	if(guessesLeft <= 0) {
+		//TODO: Display Losing Condition, prompt play again
+	}
+}
+
+function playAgain () {
+	if (confirm("Play Again?")) {
+		window.location.reload();
+	};
 }
