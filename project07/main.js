@@ -37,6 +37,7 @@ function validateResponse(value) {
 	}
 	else {
 		alert("You win!");
+		updateHighScores();
 		playAgain();
 	}
 
@@ -63,6 +64,16 @@ function onEnter() {
         $("#btnGuess").click();
     }
 	});
+}
+
+function updateHighScores() {
+	var name = prompt("Enter your name", "");
+	highScores.push([10-guessesLeft, name]);
+	highScores.sort(sortFunction);
+}
+
+function sortFunction(a, b) {
+	return a[0]-b[0];
 }
 
 function replaceContents(message) {
