@@ -40,3 +40,23 @@ button#btnGuess {
   border-bottom: 1px solid #000;
   padding: 20px;
 }
+
+#name{
+  width: 10em;
+  text-align: left;
+}
+
+#scores{
+  width: 3em;
+  text-align: left;
+}
+
+#rank{
+  width: 3em;
+  text-align: left;
+}
+
+#highScores {
+  width: 16em;
+  margin: auto;
+}
