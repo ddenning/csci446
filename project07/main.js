@@ -1,5 +1,5 @@
 var guessesLeft = 10;
-var highScores = new Array([1, "D"], [2, "Dy"], [3, "Dyl"], [4, "Dyla"], [5, "Dylan"], [6, "Dylan D"], [7, "Dylan De"], [8, "Dylan Den"]);
+var highScores = new Array();
 var correctGuess = Math.floor(Math.random()*100) + 1;
 
 $(function() {
@@ -55,9 +55,7 @@ function checkLose () {
 }
 
 function playAgain () {
-	if (confirm("Play Again?")) {
-		window.location.reload();
-	};
+	$('#toReplace').append('<br><button type="button" id="again" onclick="window.location.reload();">Play Again?</button>');
 }
 
 function onEnter() {
@@ -82,9 +80,12 @@ function sortFunction(a, b) {
 	return a[0]-b[0];
 }
 
-function replaceContents(message) {
-	var element = $('#toReplace');
-	var temp = element.html();
-	element.html("<h1>" + message + "</h1>");
-	element.html(temp);
+function replaceContents() {
+	$('#content').html('<h1>Guess-the-Number</h1>	<div id="toReplace"> <p class="subtitle">Fool! You have followed a link here and now your life depends on guessing my magic number!</p> <p>Between 1 and 100! Because it is magic!</p> <h2 id="score"><span id="guessesLeft"></span> Guesses Left</h2> <div id="displayResult"></div>	<div id="guessTheNumber">	<input type="text" size="3" name="guess" id="guess"> <br>	<button type="button" id="btnGuess">Guess!</button>	</div> </div> <h2><span class="highScore">High</span> Scores</h2>	<div id="highScores"></div>');
+}
+
+function resetGame() {
+	var guessesLeft = 10;
+	var correctGuess = Math.floor(Math.random()*100) + 1;
+	replaceContents();
 }
