@@ -79,13 +79,3 @@ function updateHighScores() {
 function sortFunction(a, b) {
 	return a[0]-b[0];
 }
-
-function replaceContents() {
-	$('#content').html('<h1>Guess-the-Number</h1>	<div id="toReplace"> <p class="subtitle">Fool! You have followed a link here and now your life depends on guessing my magic number!</p> <p>Between 1 and 100! Because it is magic!</p> <h2 id="score"><span id="guessesLeft"></span> Guesses Left</h2> <div id="displayResult"></div>	<div id="guessTheNumber">	<input type="text" size="3" name="guess" id="guess"> <br>	<button type="button" id="btnGuess">Guess!</button>	</div> </div> <h2><span class="highScore">High</span> Scores</h2>	<div id="highScores"></div>');
-}
-
-function resetGame() {
-	var guessesLeft = 10;
-	var correctGuess = Math.floor(Math.random()*100) + 1;
-	replaceContents();
-}
