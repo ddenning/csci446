@@ -60,3 +60,16 @@ button#btnGuess {
   width: 16em;
   margin: auto;
 }
+
+#displayResult {
+  font-family: 'Nosifer', cursive;
+  color: red;
+}
+
+#lose {
+  color: red;
+}
+
+#win {
+  color: green;
+}

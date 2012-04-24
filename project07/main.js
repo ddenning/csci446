@@ -33,14 +33,17 @@ function guess() {
 function validateResponse(value) {
 	if(value < correctGuess) {
 		$('#displayResult').html("<p>That's too low.</p>");
+		animateText();
 	}
 	else if(value > correctGuess) {
 		$('#displayResult').html("<p>That's too high.</p>");
+		animateText();
 	}
 	else {
-		$('#toReplace').html("<h1>You win!</h1>");
 		updateHighScores();
+		$('#toReplace').html("<h1 id='win'>You win!</h1>");
 		playAgain();
+		onWin();
 	}
 
 	checkLose();
@@ -49,8 +52,9 @@ function validateResponse(value) {
 
 function checkLose () {
 	if(guessesLeft <= 0) {
-		$('#toReplace').html("<h1>You Lose!</h1>");
+		$('#toReplace').html("<h1 id='lose'>You Lose!</h1>");
 		playAgain();
+		onLose();
 	}
 }
 
@@ -78,4 +82,21 @@ function updateHighScores() {
 
 function sortFunction(a, b) {
 	return a[0]-b[0];
+}
+
+function animateText() {
+	$("#displayResult").animate({fontSize:"3em"}, 1000);
+	$("#displayResult").animate({fontSize:"1em"}, 1000);
+}
+
+function onLose() {
+	$("#lose").animate({opacity:0.1}, 1000);
+	$("#lose").animate({opacity:1.0}, 1000);
+	onLose();
+}
+
+function onWin(num) {
+	$("#win").animate({opacity:0.1}, 1000);
+	$("#win").animate({opacity:1.0}, 1000);
+	onWin();
 }
